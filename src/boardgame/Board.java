@@ -31,6 +31,35 @@ public class Board {
 	}
 	
 	
+	// métodos
+	public Piece piece(int row, int column) {
+		return pieces [row][column];
+	}
 	
-
+	// sobrecarga do método acima	
+	public Piece piece(Position position) {
+		return pieces[position.getRow()][position.getColumn()];
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
