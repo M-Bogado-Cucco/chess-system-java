@@ -31,7 +31,7 @@ public class Position {
 	
 	
 	@Override
-	public String toString() {
+	public String toString() { // imprime a posição na tela
 		return row + ", " + column;
 	}
 	

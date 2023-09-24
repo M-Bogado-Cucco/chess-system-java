@@ -17,11 +17,11 @@ public class Board {
 		pieces = new Piece[rows][columns];
 	}
 
+	
 	public int getRows() {
 		return rows;
 	}
 
-	
 
 	public int getColumns() {
 		return columns;
@@ -37,14 +37,15 @@ public class Board {
 		return pieces[row][column];
 	}
 
-	// sobrecarga do método acima
+// sobrecarga do método acima
 	public Piece piece(Position position) {
 		if(!positionExists(position)) {
 			throw new BoardException("Position not on the board");
 		}
 		return pieces[position.getRow()][position.getColumn()];
 	}
-
+	
+//aula 185, 186
 	public void placePiece(Piece piece, Position position) {
 		if(thereIsAPiece(position)) {
 			throw new BoardException("There is already a piece"
@@ -69,7 +70,7 @@ public class Board {
 		return aux;
 	}
 
-	
+// aula 186
 	private boolean positionExists(int row, int column) {
 // uma posição somente existe se estiver dentro do tabuleiro
 		return row >= 0 && row < rows && column >= 0 && column < columns;
@@ -78,6 +79,8 @@ public class Board {
 	public boolean positionExists(Position position) {
 		return positionExists(position.getRow(), position.getColumn());
 	}
+	
+	
 	
 	public boolean thereIsAPiece(Position position) {
 		if(!positionExists(position)) {

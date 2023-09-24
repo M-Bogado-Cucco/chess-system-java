@@ -39,7 +39,7 @@ public class UI {
 	}
 
 	// método criado na aula 189
-	public static ChessPosition readChessPosition(Scanner sc) {
+	public static ChessPosition readChessPosition(Scanner sc) { // Scanner do programa principal
 		try {
 
 			String s = sc.nextLine();

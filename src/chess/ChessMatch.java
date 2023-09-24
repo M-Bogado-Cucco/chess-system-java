@@ -27,13 +27,13 @@ public class ChessMatch {
 	//e faz um downcasting para chessPiece
 		for(int i = 0; i < board.getRows(); i++) {
 			for(int j = 0; j < board.getColumns(); j++) {
-				mat[i][j] = (ChessPiece) board.piece(i, j);
+				mat[i][j] = (ChessPiece) board.piece(i, j);//interpreta como uma peça de xadrez e não uma peça comum
 			}
 		}
 		return mat;
 	}
 	
-	
+// aula 189	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, 
 			ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
@@ -42,25 +42,31 @@ public class ChessMatch {
 		Piece capturedPiece = makeMove(source, target);
 		return (ChessPiece)capturedPiece;
 	}
-	
+
+// aula 189	
 	private Piece makeMove(Position source, Position target) {
 		Piece p = board.removePiece(source);
 		Piece capturedPiece = board.removePiece(target);
 		board.placePiece(p, target);
 		return capturedPiece;
 	}
-	
+
+// aula 189	
 	private void validateSourcePosition(Position position) {
 		if(!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position");
 		}
+		if(!board.piece(position).isThereAnyPossibleMove()) {
+			throw new ChessException("There is no possible moves for the chosen piece");
+		}
 	}
 	
-	
+// aula 187	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
 	}
-	
+
+
 	private void initialSetup() {
 		placeNewPiece('c', 1, new Rook(board, Color.WHITE));
         placeNewPiece('c', 2, new Rook(board, Color.WHITE));

@@ -34,7 +34,7 @@ public class Program {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 			}
-			catch (InputMismatchException e) {
+			catch (InputMismatchException e) { //UI.ChessPosition readChessPosition
 				System.out.println(e.getMessage());
 				sc.nextLine();
 			}

@@ -17,6 +17,7 @@ public class ChessPosition {
 		this.row = row;
 	}
 
+// somente getters	
 	public char getColumn() {
 		return column;
 	}
@@ -27,19 +28,19 @@ public class ChessPosition {
 	}
 
 	
-	// método para a posição da matriz
+	// método para a posição da matriz, retorna a posição normal
 	protected Position toPosition() {
 		return new Position(8 - row, column - 'a');
 	}
 	
 	// método para a posição do xadrez
 	protected static ChessPosition fromPosition(Position position) {
-		return new ChessPosition((char)('a' - position.getColumn()), 8 - position.getRow());
+		return new ChessPosition((char)('a' - position.getColumn()), 8 - position.getRow()); //no xadrez primeiro fala a linha, depois a coluna
 	}
 	
 	@Override
 	public String toString() {
-		return "" + column + row;
+		return "" + column + row; //"" para forçar a concatenação de Strings
 	}
 	
 }
